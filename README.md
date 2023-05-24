@@ -19,3 +19,17 @@ cd height-calculator
 ```shell
 npm install
 ```
+
+## Running the App
+```shell
+npm run dev
+```
+Using the tool is pretty self explanatory...
+
+## Tech Stack
+| Tool          | Link                                 |
+|---------------| -------------------------------------|
+| Framework	    | [Next.js](https://nextjs.org/)       |
+| CSS Framework | [Tailwind](https://tailwindcss.com/) |
+
+Have fun!
