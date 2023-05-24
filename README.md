@@ -3,6 +3,7 @@
 ---
 
 I took the idea from the image below:
+
 ![alt text](https://github.com/sam-yng/height-calculator/blob/main/public/images/source.jpg "Source reference")
 
 ## Set Up
