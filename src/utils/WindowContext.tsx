@@ -7,6 +7,8 @@ export type WindowContextType = {
   setWindowOpen: (windowOpen: boolean) => void;
   height: string;
   setHeight: (height: string) => void;
+  resultOpen: boolean;
+  setResultOpen: (resultOpen: boolean) => void;
 };
 
 const WindowContext = createContext<WindowContextType | undefined>(undefined);
@@ -16,10 +18,18 @@ export const WindowProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [windowOpen, setWindowOpen] = useState<boolean>(false);
   const [height, setHeight] = useState<string>("");
+  const [resultOpen, setResultOpen] = useState<boolean>(false);
 
   const value = useMemo(
-    () => ({ windowOpen, setWindowOpen, height, setHeight }),
-    [windowOpen, setWindowOpen]
+    () => ({
+      windowOpen,
+      setWindowOpen,
+      height,
+      setHeight,
+      resultOpen,
+      setResultOpen,
+    }),
+    [windowOpen, setWindowOpen, height, setHeight, resultOpen, setResultOpen]
   );
 
   return (

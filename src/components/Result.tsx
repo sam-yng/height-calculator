@@ -1,38 +1,20 @@
 "use client";
 
-import React from "react";
 import classNames from "classnames";
-import cross from "../../public/images/close.png";
+import React from "react";
 import Image from "next/image";
+import cross from "../../public/images/close.png";
+import info from "../../public/images/Information_icon_flat.svg.png";
 import { useWindow } from "@/utils/WindowContext";
 
-export const Calculator: React.FC = () => {
-  const { setWindowOpen, setHeight, resultOpen, setResultOpen, height } =
-    useWindow();
-
-  const updateHeight = (e: { target: { value: string } }) => {
-    setHeight(e.target.value);
-  };
-
-  const showResult = () => {
-    if (height.length >= 2) {
-      setResultOpen(true);
-    }
-  };
-
-  const closeWindows = () => {
-    if (resultOpen) {
-      setResultOpen(false);
-      setWindowOpen(false);
-    }
-    setWindowOpen(false);
-  };
+export const Result: React.FC = () => {
+  const { setResultOpen, height } = useWindow();
 
   return (
     <article
       className={classNames(
         "bg-white",
-        "w-[30vw]",
+        "w-[22vw]",
         "border-2",
         "border-gray-400"
       )}
@@ -48,13 +30,13 @@ export const Calculator: React.FC = () => {
           "py-1"
         )}
       >
-        <h1 className="text-xl">Height calculator tool</h1>
+        <h1 className="text-xl">Result</h1>
         <button>
           <Image
             alt="x"
-            onClick={closeWindows}
             className="h-4 w-4 hover:cursor-pointer"
             src={cross}
+            onClick={() => setResultOpen(false)}
           />
         </button>
       </div>
@@ -65,24 +47,12 @@ export const Calculator: React.FC = () => {
           "bg-gray-100",
           "text-lg",
           "px-4",
-          "justify-between",
-          "py-8"
+          "py-8",
+          "items-center"
         )}
       >
-        <h2>Input your height</h2>
-        <input
-          onChange={updateHeight}
-          className={classNames(
-            "border-2",
-            "border-gray-300",
-            "mx-2",
-            "px-2",
-            "focus:border-blue-800",
-            "active:border-blue-800",
-            "rounded-sm"
-          )}
-        />
-        <h2>cm</h2>
+        <Image alt="icon" className="h-10 w-10 mr-4" src={info} />
+        <h2>Your height is {height}cm!</h2>
       </div>
       <div
         className={classNames(
@@ -94,12 +64,14 @@ export const Calculator: React.FC = () => {
         )}
       >
         <button
-          onClick={showResult}
+          onClick={() => setResultOpen(false)}
           className={classNames("border-2", "border-blue-800", "px-8")}
         >
-          Xem
+          Ok
         </button>
       </div>
     </article>
   );
 };
+
+export default Result;
