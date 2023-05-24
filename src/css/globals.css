@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.desktop-bg {
+  background-image: url("../../public/images/desktop.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
